@@ -147,6 +147,28 @@ public class Main {
                 }
                 System.out.println();
             }
+            int[] contador = new int[5];
+            for (int i = 0; i < matriz.length; i++) {
+                for (int j = 0; j < matriz[i].length; j++) {
+                    if (matriz[i][j] == robot) {
+                        contador[0]++;
+                    } else if (matriz[i][j] == meta) {
+                        contador[1]++;
+                    } else if (matriz[i][j] == muro) {
+                        contador[2]++;
+                    } else if (matriz[i][j] == bateria) {
+                        contador[3]++;
+                    } else {
+                        contador[4]++;
+                    }
+                }
+            }
+            int suma = 0;
+            for (int i = 0; i < contador.length; i++) {
+                suma += contador[i];
+            }
+            System.out.print(contador[0]+" R + "+contador[1]+" F + "+contador[2]+" X + "+contador[3]+" B + "+contador[4]+" Libres = "+suma+" casillas.");
+            System.out.println();
             System.out.println("Vidas restantes: " + vidas);
       } while (vidas > 0 & fin != 1);
     }
